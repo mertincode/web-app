@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js">
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js">
+    </script>
+</head>
+
+<body onload="brython()">
+
+<script type="text/python">
+from browser import *
+
+items = document.select(".item")
+
+
+def fuel_calculator(event):
+  x = float(document["consumption"].select("input")[0].value)
+  y = float(document["distance"].select("input")[0].value)
+  a = float(document["price"].select("input")[0].value)
+  items[0].text = x * a / 100 * y
+
+
+document["btn-1"].bind("click", fuel_calculator)
+</script>
+
+   <div id ="consumption"><input type="text"/>Средний расход топлива</div>
+   <div id ="distance"><input type="text"/>Расстояние</div>
+   <div id ="price"><input type="text"/>Цена</div>
+   <button id ="btn-1">Отправить</button>
+   <div class ="item item1"></div>
+   
+</body>
+
+</html>
