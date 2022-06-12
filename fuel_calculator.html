@@ -19,9 +19,9 @@ items = document.select(".item")
 
 
 def fuel_calculator(event):
-  x = float(document["consumption"].select("input")[0].value)
-  y = float(document["distance"].select("input")[0].value)
-  a = float(document["price"].select("input")[0].value)
+  x = float(document["consumption"].select("input")[0].value.replace(',', '.'))
+  y = float(document["distance"].select("input")[0].value.replace(',', '.'))
+  a = float(document["price"].select("input")[0].value.replace(',', '.'))
   items[0].text = x * a / 100 * y
 
 
